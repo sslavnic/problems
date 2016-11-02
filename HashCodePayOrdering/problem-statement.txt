@@ -1,0 +1,28 @@
+In Hashcode, we take compensation very seriously. Employees are ranked from
+1 to N depending on their work, no two employees sharing the same rank.
+Instead of monthly salaries, we are paid every day after the daily meeting.
+The maximum amount that a CEO wants to pay to one employee is $1000. Every
+one of our 1000 employees gets paid, always with at least $1 and always with
+an integer amount.
+
+To be fair with salaries, the CEO wants to avoid this situation: there are
+three employees X, Y and Z such that X has higher rank than Y, Y has higher
+rank than Z, but Y is paid more than X while Z is paid more than Y. That
+would be unfair and must be avoided.
+
+This got the CEO thinking. He remembered that in the beinning, when there
+were 3 employees and they were paid up to $3 each day, there were very few
+combinations to do this. Valid combinations starting with (1,1,1), (1,1,2)
+all the way to (3,3,3) were allowed. The only combination not allowed was
+(1,2,3). In this case, the best ranked employee would get $1, the second
+would get $2 and the last would get $3. That would clearly break the fairness
+principle. So, in the early days, the CEO concluded, there were 3^3 - 1 = 26
+valid salary combinations. He also concluded that when there were 4 employees 
+and maximum salary rose to $5, there were 485 ways to pay them.
+
+But now that HashCode has 1000 employees and the pay is up to $1000 per day,
+how many combinations are there?
+
+
+
+Problem taken from HashCode company recruitment page.
