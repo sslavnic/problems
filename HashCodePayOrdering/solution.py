@@ -8,30 +8,42 @@ def t():
 
 Ddict = defaultdict(t)
 	
-	#	Going up, right, or down once
-def DR(m, n, rolling_max):
+
+def DR(m, n, roll_min, roll_max):
 	if m == 1:
 		return 1
-	if Ddict[m, n, rolling_max] != -1:
-		return Ddict[m, n, rolling_max]
+	if Ddict[m, n, roll_min, roll_max] != -1:
+		return Ddict[m, n, roll_min, roll_max]
 		
-		
-	# Number of ways to get to n, when at (m -1 , <= n) 
 	sum = 0
-	for k in range(1, n + 1):
-		sum += DR(m - 1, k, rolling_max)
-	
-	# Number of ways to get to n, from above n
-	for k in range(n + 1, rolling_max + 1):
-		sum += DR(m - 1, k, k)
-	
-	Ddict[m, n, rolling_max] = sum
+
+	#Above min, so only allowed to go down
+	if(n > roll_min):
+		for i in range(1, n + 1):
+
+			if(i <= roll_min):
+				sum += DR(m - 1, i, i, roll_max)
+			else:
+				sum += DR(m - 1, i, roll_min, roll_max)
+
+	#Below or at min, so can go up as well
+	else:
+
+		#Everything below is below the min as well
+		for i in range(1, n + 1):
+			sum += DR(m - 1, i, i, roll_max)
+
+		#Make sure not to go over max
+		for i in range(n + 1, roll_max + 1):
+			sum += DR(m - 1, i, roll_min, i)
+
+
+	Ddict[m, n, roll_min, roll_max] = sum
 	return sum
-	
-	
+
 sum = 0
 for k in range(1, N + 1):
-	sum += DR(M, k, N)
+	sum += DR(M, k, k, N)
 
 #sum = DR(M, N, N)
 print(sum)
