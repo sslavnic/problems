@@ -25,4 +25,4 @@ how many combinations are there?
 
 
 
-Problem taken from HashCode company recruitment page.
+Problem taken from HashCode company recruitment page. (Historic)
