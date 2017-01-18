@@ -39,12 +39,13 @@ M = int(input("Number of employees: "))
 	care not to pay greater than our previous max to avoid invalid orderings.
 """
 
-
-def t():
+#Function factory for default dictionary value
+def neg_factory_func():
 	return -1
 
-Ddict = defaultdict(t)
-	
+Ddict = defaultdict(neg_factory_func)
+
+#The recursion
 def DR(m, n, roll_min, roll_max):
 	if m == 1:
 		return 1
@@ -86,4 +87,7 @@ for k in range(1, N + 1):
 
 print(sum)
 
-
+# This program runs in something like O(n^5) (what with n=m) which for the input in the problem-statement
+# 	makes it a bad idea to use base python. A better implementation could be done in something faster
+# 	like C, Cython or mabye with Numpy. This solution checks out for reasonably high values of n and m
+#	and I've lost motivation now that I'm pretty sure it's solved.
